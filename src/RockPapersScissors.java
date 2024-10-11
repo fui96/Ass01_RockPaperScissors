@@ -15,19 +15,19 @@ public class RockPapersScissors {
         do {
             //PlayerA Input Check
             do {
+                valid = false;
                 System.out.println("PlayerA please enter your move. [R/P/S]");
-                Input = input.next();
-                if (Input.equalsIgnoreCase("R")) {
-                    PlayerA = input.nextLine();
+                Input = input.nextLine().toUpperCase();
+                if (Input.equals("R")) {
+                    PlayerA = Input;
                     System.out.println("PlayerA you have chosen Rock");
                     valid = true;
-
-                } else if (Input.equalsIgnoreCase("P")) {
-                    PlayerA = input.nextLine();
+                } else if (Input.equals("P")) {
+                    PlayerA = Input;
                     System.out.println("PlayerA you have chosen Paper");
                     valid = true;
-                } else if (Input.equalsIgnoreCase("S")) {
-                    PlayerA = input.nextLine();
+                } else if (Input.equals("S")) {
+                    PlayerA = Input;
                     System.out.println("PlayerA you have chosen Scissors");
                     valid = true;
                 } else {
@@ -40,18 +40,19 @@ public class RockPapersScissors {
             Input = "";
             //PlayerB Input Check
             do {
+                valid = false;
                 System.out.println("PlayerB please enter your move. [R/P/S]");
-                Input = input.next();
+                Input = input.nextLine().toUpperCase();
                 if (Input.equalsIgnoreCase("R")) {
-                    PlayerB = input.nextLine();
+                    PlayerB = Input;
                     System.out.println("PlayerB you have chosen Rock");
                     valid = true;
                 } else if (Input.equalsIgnoreCase("P")) {
-                    PlayerB = input.nextLine();
+                    PlayerB = Input;
                     System.out.println("PlayerB you have chosen Paper");
                     valid = true;
                 } else if (Input.equalsIgnoreCase("S")) {
-                    PlayerB = input.nextLine();
+                    PlayerB = Input;
                     System.out.println("PlayerB you have chosen Scissors");
                     valid = true;
                 } else {
@@ -73,7 +74,7 @@ public class RockPapersScissors {
                     MoveA = 7;
                 } else if (PlayerA.equalsIgnoreCase("P")) {
                     MoveA = 4;
-                } else if (PlayerB.equalsIgnoreCase("S")) {
+                } else if (PlayerA.equalsIgnoreCase("S")) {
                     MoveA = 2;
                 }
                 //PlayerB Value Assignment
@@ -81,8 +82,8 @@ public class RockPapersScissors {
                     MoveB = -7;
                 } else if (PlayerB.equalsIgnoreCase("P")) {
                     MoveB = -4;
-                } else if (PlayerA.equalsIgnoreCase("S")) {
-                    MoveA = -2;
+                } else if (PlayerB.equalsIgnoreCase("S")) {
+                    MoveB = -2;
                 }
                 MoveSum = MoveA + MoveB;
                 //Tie Game Cases
@@ -98,7 +99,7 @@ public class RockPapersScissors {
                 }
                 //Other Cases
                 if (MoveSum == 5) {
-                    System.out.println("Rock Beats Scissors, Congratulations PlayerB!");
+                    System.out.println("Rock Beats Scissors, Congratulations PlayerA!");
                     Winner = true;
                 } else if (MoveSum == 3) {
                     System.out.println("Paper beats Rock, Congratulations PlayerB!");
@@ -113,7 +114,7 @@ public class RockPapersScissors {
                     System.out.println("Paper beats Rock, Congratulations PlayerA!");
                     Winner = true;
                 } else if (MoveSum == -5) {
-                    System.out.println("Rock beats Scissors, Congratulations PlayerA!");
+                    System.out.println("Rock beats Scissors, Congratulations PlayerB!");
                     Winner = true;
                 }
             }while (!Winner);
@@ -123,11 +124,11 @@ public class RockPapersScissors {
                 Cont = true;
             }
             else{
+                System.out.println("Thanks for playing!");
                 Cont = false;
             }
 
 
         }while(Cont);
     }
-
 }
